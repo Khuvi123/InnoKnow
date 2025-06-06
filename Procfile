@@ -1,1 +1,1 @@
-web: gunicorn innoknow.wsgi
+web: gunicorn core.wsgi
