@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<header>
+  <h1>Welcome</h1>
+</header>
+
+<main>
+
+  <section class="level-section">
+    <h2>Beginner</h2>
+    <div class="lesson-row">
+      {% for lesson in beginner_lessons %}
+      <div class="lesson-card">
+        {% if lesson.image %}
+        <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}">
+        {% else %}
+        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+        {% endif %}
+        <h3>{{ lesson.title }}</h3>
+        <a href="{% url 'lesson_detail' lesson.id %}" class="btn">Start</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="level-section">
+    <h2>Intermediate</h2>
+    <div class="lesson-row">
+      {% for lesson in intermediate_lessons %}
+      <div class="lesson-card">
+        {% if lesson.image %}
+        <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}">
+        {% else %}
+        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+        {% endif %}
+        <h3>{{ lesson.title }}</h3>
+        <a href="{% url 'lesson_detail' lesson.id %}" class="btn">Start</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="level-section">
+    <h2>Advanced</h2>
+    <div class="lesson-row">
+      {% for lesson in advanced_lessons %}
+      <div class="lesson-card">
+        {% if lesson.image %}
+        <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}">
+        {% else %}
+        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+        {% endif %}
+        <h3>{{ lesson.title }}</h3>
+        <a href="{% url 'lesson_detail' lesson.id %}" class="btn">Start</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #1a1a2e, #301b3f);
+    color: #e0e0e0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    padding: 3rem 5%;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .level-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a084ff;
+  }
+
+  .lesson-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  .lesson-card {
+    background-color: #121212;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  .lesson-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .lesson-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .lesson-card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .lesson-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .btn {
+    background-color: #7b61ff;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #a084ff;
+  }
+</style>
+
+{% endblock %}

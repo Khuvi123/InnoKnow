@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | InnoKnow{% endblock %}
+
+{% block content %}
+<header>
+    <img src="{% static 'learning/images/inn.png' %}" alt="LinguaLearn Logo" class="about-logo">
+    <h1>About InnoKnow</h1>
+</header>
+
+<main>
+    <section class="intro">
+        <h2>Who We Are</h2>
+        <p>
+            LinguaLearn is dedicated to making English learning fun, accessible, and effective for everyone. 
+            Whether you are a complete beginner or advancing your skills, we personalize your experience 
+            so you can learn at your own pace.
+        </p>
+    </section>
+
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to empower students worldwide with high-quality, interactive English lessons and engaging quizzes.
+            We believe that learning a language should be exciting and rewarding, not boring or stressful.
+        </p>
+    </section>
+
+    <section class="team">
+        <h2>Meet the Team</h2>
+        <div class="team-members">
+            <div class="member">
+                <img src="{% static 'images/team1.png' %}" alt="Team member 1">
+                <h3>gomboo</h3>
+                <p>Founder & Lead Developer</p>
+            </div>
+            <div class="member">
+                <img src="{% static 'images/team2.png' %}" alt="Team member 2">
+                <h3>Dorj Bold</h3>
+                <p>Lesson Designer</p>
+            </div>
+            <!-- Add more team members as needed -->
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>
+            Got a question or suggestion? Email us at 
+            <a href="mailto:support@lingualearn.com">support@lingualearn.com</a>
+        </p>
+    </section>
+    <style>
+        /* General layout for About page */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(to right, #1a1a2e, #301b3f);
+    color: #f0f0f0;
+    border-bottom: 1px solid #444;
+}
+
+.about-logo {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* Main content styling */
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 1.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    background-color: #251a3a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Team section */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.member {
+    text-align: center;
+    max-width: 200px;
+}
+
+.member img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.member h3 {
+    margin: 0.5rem 0 0.2rem;
+    color: #a084ff;
+}
+
+/* Contact section */
+a {
+    color: #a084ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #120e24;
+    color: #999;
+    font-size: 0.95rem;
+    border-top: 1px solid #333;
+}
+
+    </style>
+</main>
+
+<footer>
+    <p>&copy; 2025 InnoKnow. All rights reserved.</p>
+</footer>
+{% endblock %}

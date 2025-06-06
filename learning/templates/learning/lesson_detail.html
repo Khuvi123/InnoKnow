@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ lesson.title }}</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0e0e1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #a084ff;
+        }
+
+        .description {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .content-block {
+            background: #1c1c2b;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            white-space: pre-wrap;
+            border-left: 5px solid #7b61ff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons {
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #7b61ff;
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #a084ff;
+        }
+
+        a.back-link {
+            color: #a084ff;
+            text-decoration: underline;
+            font-size: 0.95rem;
+        }
+
+        .code-box {
+            background-color: #111827;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <h1>{{ lesson.title }}</h1>
+        <p class="description">{{ lesson.description }}</p>
+
+        {% if lesson.image %}
+        <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}">
+        {% endif %}
+
+        <div class="content-block">
+            {{ lesson.content|linebreaks }}
+        </div>
+
+
+
+        <div class="buttons">
+            {% if lesson.quiz %}
+            <a href="{% url 'quiz' lesson.id %}" class="btn">Take Quiz</a>
+            {% endif %}
+            <a href="{% url 'dashboard' %}" class="btn">Back to Dashboard</a>
+        </div>
+
+        {# Optional: Show raw code sample if this is a code-based lesson #}
+        {% if lesson.code %}
+        <div class="code-box">
+            {{ lesson.code|linebreaksbr }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

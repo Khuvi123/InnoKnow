@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="hero-section">
+    <div class="hero-text">
+        <h1>Learn without limits</h1>
+        <p>Start, switch, or advance your career with more than 10,000 courses, certificates, and degrees.</p>
+        <a href="{% url 'dashboard' %}" class="button-primary">Go to the lessons</a>
+        <a href="{% url 'about' %}" class="button-secondary">About us</a>
+    </div>
+    <div class="hero-image">
+        <img src="{% static 'learning/images/log.png' %}" alt="Person">
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 InnoKnow. All rights reserved.</p>
+</footer>
+
+<style>
+/* Base Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #1a1a2e, #301b3f);
+    color: white;
+}
+
+/* Layout */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 8%;
+    position: relative;
+}
+
+main > div {
+    z-index: 1;
+    max-width: 600px;
+}
+
+/* Hero Section */
+.hero-image img {
+    max-width: 350px;
+    height: auto;
+}
+
+/* Buttons */
+.button-primary,
+.button-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.button-primary {
+    background-color: #7b61ff;
+    color: white;
+}
+
+.button-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+}
+
+.navbar-logo {
+    height: 60px;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links a,
+.navbar-user a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+    color: #888;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+    border-top: 1px solid #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .hero-image img {
+        max-width: 80%;
+    }
+}
+</style>
+
+{% endblock %}

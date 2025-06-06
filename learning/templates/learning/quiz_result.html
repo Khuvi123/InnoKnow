@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #0b0b14, #1b1126);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #1e1e2e;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #a084ff;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #7b61ff;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #a084ff;
+        }
+
+        .correct {
+            color: #42f57e;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .note {
+            color: #999;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Result</h1>
+
+        {% if is_correct %}
+            <p class="correct">🎉 Correct!</p>
+        {% else %}
+            <p class="incorrect">❌ Incorrect. The correct answer was "<strong>{{ quiz.correct_answer }}</strong>".</p>
+        {% endif %}
+
+        {% if next_lesson %}
+            <a href="{% url 'lesson_detail' next_lesson.id %}" class="btn">Next Lesson</a>
+        {% else %}
+            <p class="note">No more lessons available.</p>
+        {% endif %}
+
+        <a href="{% url 'dashboard' %}" class="btn">Return to Dashboard</a>
+    </div>
+</body>
+</html>
