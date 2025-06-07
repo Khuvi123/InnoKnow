@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-secret-key-for-dev')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['.onrender.com', 'innoknow.com']
+ALLOWED_HOSTS = ['.onrender.com', 'innoknow.com','127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
